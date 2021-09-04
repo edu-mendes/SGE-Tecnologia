@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import styled from 'styled-components';
+import Menu from '../src/components/commons/Menu';
 
 const Title = styled.h1`
   font-size: 50px;
@@ -8,5 +9,10 @@ const Title = styled.h1`
 `;
 
 export default function Home() {
-  return <Title>SGE Tecnologia</Title>;
+  return (
+    <div>
+      <Menu />
+      <Title>SGE Tecnologia</Title>
+    </div>
+  );
 }
