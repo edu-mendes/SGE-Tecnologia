@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextField from '../../form/TextField';
 
 function ThirdStage({ aoEnviar }) {
@@ -74,5 +75,9 @@ function ThirdStage({ aoEnviar }) {
     </form>
   );
 }
+
+ThirdStage.propTypes = {
+  aoEnviar: PropTypes.string.isRequired,
+};
 
 export default ThirdStage;

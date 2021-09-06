@@ -15,5 +15,6 @@ export default function Formulario() {
 }
 
 function aoEnviarForm(dados) {
+  // eslint-disable-next-line no-console
   console.log(dados);
 }

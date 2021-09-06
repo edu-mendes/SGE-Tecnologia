@@ -4,6 +4,7 @@ import React from 'react';
 import {
   Step, StepLabel, Stepper, Typography,
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import FirstStage from './FirstStage';
 import SecondStage from './SecondStage';
 import ThirdStage from './ThirdStage';
@@ -46,5 +47,9 @@ function FormRegistration({ aoEnviar }) {
     </>
   );
 }
+
+FormRegistration.propTypes = {
+  aoEnviar: PropTypes.string.isRequired,
+};
 
 export default FormRegistration;
