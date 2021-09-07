@@ -1,18 +1,15 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import styled from 'styled-components';
+import { Container, Typography } from '@material-ui/core';
 import Menu from '../src/components/commons/Menu';
-
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`;
 
 export default function Home() {
   return (
     <div>
       <Menu />
-      <Title>SGE Tecnologia</Title>
+      <Container component="article" maxWidth="sm" style={{ padding: '10vh' }}>
+        <Typography variant="h3" component="h1" align="center">SGE Tecnologia</Typography>
+      </Container>
     </div>
   );
 }

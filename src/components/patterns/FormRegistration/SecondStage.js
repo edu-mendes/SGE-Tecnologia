@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button, Typography } from '@material-ui/core';
 import TextField from '../../form/TextField';
 
-function SecondStage({ aoEnviar }) {
+function SecondStage({ aoEnviar, voltar }) {
   const [name, setName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [birthDate, setBirthDate] = React.useState('');
@@ -14,7 +15,7 @@ function SecondStage({ aoEnviar }) {
       aoEnviar({ name, lastName, birthDate });
     }}
     >
-      <p>Nome:</p>
+      <Typography>Nome:</Typography>
       <TextField
         value={name}
         onChange={(event) => {
@@ -26,7 +27,7 @@ function SecondStage({ aoEnviar }) {
         type="name"
         required
       />
-      <p>Sobrenome:</p>
+      <Typography>Sobrenome:</Typography>
       <TextField
         value={lastName}
         onChange={(ev) => {
@@ -38,7 +39,7 @@ function SecondStage({ aoEnviar }) {
         type="name"
         required
       />
-      <p>Data de Nascimento:</p>
+      <Typography>Data de Nascimento:</Typography>
       <TextField
         value={birthDate}
         onChange={(ev) => {
@@ -50,15 +51,19 @@ function SecondStage({ aoEnviar }) {
         type="date"
         required
       />
-      <button type="submit">
-        Proximo
-      </button>
+      <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={voltar}>
+        Voltar
+      </Button>
+      <Button type="submit" variant="contained" color="primary" fullWidth>
+        Proxímo
+      </Button>
     </form>
   );
 }
 
 SecondStage.propTypes = {
   aoEnviar: PropTypes.string.isRequired,
+  voltar: PropTypes.string.isRequired,
 };
 
 export default SecondStage;

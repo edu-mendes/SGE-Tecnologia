@@ -3,12 +3,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import NextLink from 'next/link';
+import { Typography } from '@material-ui/core';
 
 export default function Link({ href, children, ...props }) {
   return (
     <NextLink href={href} passHref>
       <a {...props}>
-        {children}
+        <Typography>
+          {children}
+        </Typography>
       </a>
     </NextLink>
   );

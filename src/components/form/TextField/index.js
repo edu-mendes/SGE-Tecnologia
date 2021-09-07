@@ -20,6 +20,8 @@ export default function TextField({
   name,
   onChange,
   value,
+  type,
+  required,
 }) {
   return (
     <InputWrapper>
@@ -28,6 +30,8 @@ export default function TextField({
         name={name}
         onChange={onChange}
         value={value}
+        type={type}
+        required={required}
       />
     </InputWrapper>
   );
@@ -38,4 +42,6 @@ TextField.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  required: PropTypes.string.isRequired,
 };
