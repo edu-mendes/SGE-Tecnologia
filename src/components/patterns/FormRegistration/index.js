@@ -17,6 +17,10 @@ function FormRegistration({ aoEnviar }) {
     setEtapaAtual(etapaAtual + 1);
   }
 
+  function voltar() {
+    setEtapaAtual(etapaAtual - 1);
+  }
+
   function coletarDados(dados) {
     setDados({ ...dadosColetados, ...dados });
     proximo();
@@ -24,9 +28,9 @@ function FormRegistration({ aoEnviar }) {
 
   const formularios = [
     <FirstStage aoEnviar={coletarDados} />,
-    <SecondStage aoEnviar={coletarDados} />,
-    <ThirdStage aoEnviar={coletarDados} />,
-    <Typography variant="h5">Obrigado pelo Cadastro!</Typography>,
+    <SecondStage aoEnviar={coletarDados} voltar={voltar} />,
+    <ThirdStage aoEnviar={coletarDados} voltar={voltar} />,
+    <Typography variant="h5" component="h1" align="center">Obrigado pelo Cadastro!</Typography>,
   ];
 
   React.useEffect(() => {

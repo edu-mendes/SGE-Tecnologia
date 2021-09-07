@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '@material-ui/core';
 import TextField from '../../form/TextField';
 
-function ThirdStage({ aoEnviar }) {
+function ThirdStage({ aoEnviar, voltar }) {
   const [cep, setCep] = React.useState('');
   const [address, setAddress] = React.useState('');
   const [number, setNumber] = React.useState('');
@@ -68,16 +69,21 @@ function ThirdStage({ aoEnviar }) {
         id="city"
         label="Cidade"
         type="text"
+        placeholder="Cidade"
       />
-      <button type="submit">
-        Finalizar Cadastro
-      </button>
+      <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={voltar}>
+        Voltar
+      </Button>
+      <Button type="submit" variant="contained" color="primary" fullWidth>
+        Proxímo
+      </Button>
     </form>
   );
 }
 
 ThirdStage.propTypes = {
   aoEnviar: PropTypes.string.isRequired,
+  voltar: PropTypes.string.isRequired,
 };
 
 export default ThirdStage;

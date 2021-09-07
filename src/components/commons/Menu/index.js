@@ -4,6 +4,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled from 'styled-components';
+import { Typography } from '@material-ui/core';
 import Link from '../Link';
 import { MenuWrapper } from './styles/MenuWrapper';
 
@@ -13,7 +14,7 @@ export default function Menu() {
     <MenuWrapper isMenuOpen={isMenuOpen}>
       <div className="container">
         <MenuWrapper.Logo>
-          <span>SGE Tecnologia</span>
+          <Typography>SGE Tecnologia</Typography>
         </MenuWrapper.Logo>
         <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/' }, { name: 'Listas de Gatos', slug: '/listagatos' }, { name: 'Formulário', slug: '/formulario' }].map((menuItem) => (
@@ -48,13 +49,13 @@ export function MenuMobileDefault() {
     <MenuMobileDefault.MenuWrapper>
       <nav>
         <a href="/">
-          Inicio
+          <Typography>Inicio</Typography>
         </a>
         <a href="/listagatos">
-          Listas de Gatos
+          <Typography>Listas de Gatos</Typography>
         </a>
         <a href="/formulario">
-          Formulário
+          <Typography>Formulário</Typography>
         </a>
         <hr />
       </nav>

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Typography, Button } from '@material-ui/core';
 import TextField from '../../form/TextField';
 
 function FirstStage({ aoEnviar }) {
@@ -14,7 +15,7 @@ function FirstStage({ aoEnviar }) {
       aoEnviar({ email, password, confirmPassword });
     }}
     >
-      <p>E-mail:</p>
+      <Typography>E-mail:</Typography>
       <TextField
         value={email}
         onChange={(event) => {
@@ -26,7 +27,7 @@ function FirstStage({ aoEnviar }) {
         type="email"
         required
       />
-      <p>Senha:</p>
+      <Typography>Senha:</Typography>
       <TextField
         value={password}
         onChange={(ev) => {
@@ -38,7 +39,7 @@ function FirstStage({ aoEnviar }) {
         type="password"
         required
       />
-      <p>Confirmar Senha:</p>
+      <Typography>Confirmar Senha:</Typography>
       <TextField
         value={confirmPassword}
         onChange={(ev) => {
@@ -50,9 +51,9 @@ function FirstStage({ aoEnviar }) {
         type="password"
         required
       />
-      <button type="submit">
-        Proximo
-      </button>
+      <Button type="submit" variant="contained" color="primary" fullWidth>
+        Proxímo
+      </Button>
     </form>
   );
 }
