@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core';
 import TextField from '../../form/TextField';
 
-function ThirdStage({ aoEnviar, voltar }) {
+function ThirdStage({ aoEnviar, handleBack }) {
   const [cep, setCep] = React.useState('');
   const [address, setAddress] = React.useState('');
   const [number, setNumber] = React.useState('');
@@ -71,11 +71,11 @@ function ThirdStage({ aoEnviar, voltar }) {
         type="text"
         placeholder="Cidade"
       />
-      <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={voltar}>
+      <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={handleBack}>
         Voltar
       </Button>
       <Button type="submit" variant="contained" color="primary" fullWidth>
-        Proxímo
+        Enviar
       </Button>
     </form>
   );
@@ -83,7 +83,7 @@ function ThirdStage({ aoEnviar, voltar }) {
 
 ThirdStage.propTypes = {
   aoEnviar: PropTypes.string.isRequired,
-  voltar: PropTypes.string.isRequired,
+  handleBack: PropTypes.string.isRequired,
 };
 
 export default ThirdStage;
