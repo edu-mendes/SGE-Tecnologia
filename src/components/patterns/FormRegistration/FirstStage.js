@@ -6,13 +6,13 @@ import TextField from '../../form/TextField';
 
 function FirstStage({ aoEnviar }) {
   const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [newPassword, setNewPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
 
   return (
     <form onSubmit={(ev) => {
       ev.preventDefault();
-      aoEnviar({ email, password, confirmPassword });
+      aoEnviar({ email, newPassword, confirmPassword });
     }}
     >
       <Typography>E-mail:</Typography>
@@ -29,9 +29,9 @@ function FirstStage({ aoEnviar }) {
       />
       <Typography>Senha:</Typography>
       <TextField
-        value={password}
+        value={newPassword}
         onChange={(ev) => {
-          setPassword(ev.target.value);
+          setNewPassword(ev.target.value);
         }}
         name="password"
         id="password"

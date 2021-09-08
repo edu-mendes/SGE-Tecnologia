@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, Typography } from '@material-ui/core';
 import TextField from '../../form/TextField';
 
-function SecondStage({ aoEnviar, voltar }) {
+function SecondStage({ aoEnviar, handleBack }) {
   const [name, setName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [birthDate, setBirthDate] = React.useState('');
@@ -51,7 +51,7 @@ function SecondStage({ aoEnviar, voltar }) {
         type="date"
         required
       />
-      <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={voltar}>
+      <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={handleBack}>
         Voltar
       </Button>
       <Button type="submit" variant="contained" color="primary" fullWidth>
@@ -63,7 +63,7 @@ function SecondStage({ aoEnviar, voltar }) {
 
 SecondStage.propTypes = {
   aoEnviar: PropTypes.string.isRequired,
-  voltar: PropTypes.string.isRequired,
+  handleBack: PropTypes.string.isRequired,
 };
 
 export default SecondStage;
