@@ -3,13 +3,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core';
 import TextField from '../../form/TextField';
+import FormContext from '../../../context/formContext';
 
 function ThirdStage({ aoEnviar, handleBack }) {
-  const [cep, setCep] = React.useState('');
-  const [address, setAddress] = React.useState('');
-  const [number, setNumber] = React.useState('');
-  const [state, setState] = React.useState('');
-  const [city, setCity] = React.useState('');
+  const formContext = React.useContext(FormContext);
+  const [cep, setCep] = React.useState(formContext.forms.cep);
+  const [address, setAddress] = React.useState(formContext.forms.address);
+  const [number, setNumber] = React.useState(formContext.forms.number);
+  const [state, setState] = React.useState(formContext.forms.state);
+  const [city, setCity] = React.useState(formContext.forms.city);
+
+  const handleApplyForm = () => {
+    const newForms = {
+      cep, address, number, state, city,
+    };
+    formContext.dispatch({ type: 'SET_FORMS', forms: newForms });
+  };
 
   return (
     <form
@@ -74,7 +83,7 @@ function ThirdStage({ aoEnviar, handleBack }) {
       <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={handleBack}>
         Voltar
       </Button>
-      <Button type="submit" variant="contained" color="primary" fullWidth>
+      <Button type="submit" variant="contained" color="primary" fullWidth onClick={handleApplyForm}>
         Enviar
       </Button>
     </form>

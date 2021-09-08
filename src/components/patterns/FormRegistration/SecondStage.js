@@ -3,11 +3,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Typography } from '@material-ui/core';
 import TextField from '../../form/TextField';
+import FormContext from '../../../context/formContext';
 
 function SecondStage({ aoEnviar, handleBack }) {
-  const [name, setName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
-  const [birthDate, setBirthDate] = React.useState('');
+  const formContext = React.useContext(FormContext);
+  const [name, setName] = React.useState(formContext.forms.name);
+  const [lastName, setLastName] = React.useState(formContext.forms.lastName);
+  const [birthDate, setBirthDate] = React.useState(formContext.forms.birthDate);
+
+  const handleApplyForm = () => {
+    const newForms = { name, lastName, birthDate };
+    formContext.dispatch({ type: 'SET_FORMS', forms: newForms });
+  };
 
   return (
     <form onSubmit={(ev) => {
@@ -54,7 +61,7 @@ function SecondStage({ aoEnviar, handleBack }) {
       <Button variant="contained" color="primary" fullWidth style={{ marginBlock: '1vh' }} onClick={handleBack}>
         Voltar
       </Button>
-      <Button type="submit" variant="contained" color="primary" fullWidth>
+      <Button type="submit" variant="contained" color="primary" fullWidth onClick={handleApplyForm}>
         Proxímo
       </Button>
     </form>
