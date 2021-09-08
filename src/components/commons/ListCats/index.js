@@ -31,7 +31,7 @@ export default function ListCats() {
       .then((respFull) => {
         setTags(respFull);
       });
-  });
+  }, []);
 
   React.useEffect(() => {
     fetch('https://cataas.com/api/cats')
@@ -39,7 +39,7 @@ export default function ListCats() {
       .then((respFull) => {
         setCats(respFull);
       });
-  });
+  }, []);
 
   // const respostaCat = cats.reduce((acc, cat) => {
   //   const { id, tags } = cat;

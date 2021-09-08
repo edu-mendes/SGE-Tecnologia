@@ -3,11 +3,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Button } from '@material-ui/core';
 import TextField from '../../form/TextField';
+import FormContext from '../../../context/formContext';
 
 function FirstStage({ aoEnviar }) {
-  const [email, setEmail] = React.useState('');
-  const [newPassword, setNewPassword] = React.useState('');
-  const [confirmPassword, setConfirmPassword] = React.useState('');
+  const formContext = React.useContext(FormContext);
+  const [email, setEmail] = React.useState(formContext.forms.email);
+  const [newPassword, setNewPassword] = React.useState(formContext.forms.newPassword);
+  const [confirmPassword, setConfirmPassword] = React.useState(formContext.forms.confirmPassword);
+
+  const handleApplyForm = () => {
+    const newForms = { email, newPassword, confirmPassword };
+    formContext.dispatch({ type: 'SET_FORMS', forms: newForms });
+  };
 
   return (
     <form onSubmit={(ev) => {
@@ -51,7 +58,7 @@ function FirstStage({ aoEnviar }) {
         type="password"
         required
       />
-      <Button type="submit" variant="contained" color="primary" fullWidth>
+      <Button type="submit" variant="contained" color="primary" fullWidth onClick={handleApplyForm}>
         Proxímo
       </Button>
     </form>
